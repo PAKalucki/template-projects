@@ -1,0 +1,28 @@
+// pipeline {
+
+//   options {
+//     disableConcurrentBuilds()
+//     ansiColor('xterm')
+//   }
+
+//   environment {
+//     REGION = ""
+//     ENV = ""
+//   }
+
+//   agent any
+
+//   stages {
+//     stage("Terraform") {
+//       steps {
+//         checkout scm
+//         withAWS(credentials: "devops", region: "${REGION}") {
+//           sh "terraform init -backend-config=./backend/${ENV}.conf"
+//           sh "terraform workspace new ${ENV} || true"
+//           sh "terraform workspace select ${ENV}"
+//           sh "terraform apply -auto-approve"
+//         }
+//       }
+//     }
+//   }
+// }
